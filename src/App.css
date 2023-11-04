@@ -1,0 +1,10 @@
+main {
+  text-align: center;
+  vertical-align: center;
+}
+
+.Post {
+  background: lightgray;
+  height: 200px;
+  width: 40%;
+}
