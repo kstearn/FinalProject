@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react';
 import { supabase } from '../client.jsx';
+import { Link } from 'react-router-dom';
 
 const Post = ({id, createdAt, title, body, likes}) => {
 
   const [currLikes, setCurrLikes] = useState(likes);
   
-  const handleLike = (event) => {
+  const handleLike = () => {
     setCurrLikes(currLikes + 1);
   }
 
@@ -21,7 +22,8 @@ const Post = ({id, createdAt, title, body, likes}) => {
   
   return (
     <div className="Post">
-      <h3>{title}</h3>
+      <Link
+        to={`/details/${id}`}><h3>{title}</h3></Link>
       <p>{body}</p>
       <p>{createdAt.toLocaleString()}</p>
       <p>Likes: {currLikes}</p>
