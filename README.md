@@ -2,7 +2,7 @@
 
 Submitted by: **Katelyn Stearn**
 
-This web app: **insert description**
+This web app: **contains posts about traveling. Allows users to create new posts, sort posts by most recent/most likes, search by title, like posts, add comments, edit posts, and delete posts.**
 
 Time spent: **9** hours spent in total
 
