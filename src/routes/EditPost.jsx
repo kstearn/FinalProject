@@ -54,7 +54,7 @@ const EditPost = () => {
       .update({ title: newPost.title, body: newPost.body})
       .eq('id', params.id);
 
-    window.location = `/details/${params.id}`;
+    window.location = `/`;
   }
 
   const deletePost = async (event) => {
