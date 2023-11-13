@@ -46,13 +46,13 @@ const Comments = ({post_id}) => {
       {comments ?
         comments.map(comment => {
           return (<div key={comment.comment_id} className="comment">{comment.comment_body}
-            <div className="commentTime">{new Date(comment.created_at).toLocaleString()}</div>
+            <div className="time">{new Date(comment.created_at).toLocaleString()}</div>
           </div>);
       }) :
       ("No comments yet!")}
       <form className="newComment">
           <label for="comment">Comment: </label><br/>
-          <textarea name="comment" onChange={handleChange}></textarea><br/><br/>
+          <textarea name="comment" rows="3" cols="50" maxlength="500" onChange={handleChange}></textarea><br/><br/>
 
         <button onClick={createComment}>Post Comment</button>
       </form>

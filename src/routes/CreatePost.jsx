@@ -31,11 +31,12 @@ const CreatePost = () => {
   return (
     <div className="CreatePost">
       <form>
+        <h3>Create Post</h3>
         <label for="title">Title:</label><br/>
           <input type="text" name="title" value={post.title} onChange={handleChange}/><br/><br/>
         
           <label for="body">Post body:</label><br/>
-          <textarea name="body" value={post.body} onChange={handleChange}></textarea><br/><br/>
+          <textarea name="body" value={post.body} rows="5" cols="50" maxlength="300" onChange={handleChange}></textarea><br/><br/>
 
         <button onClick={createPost}>Create Post</button>
       </form>

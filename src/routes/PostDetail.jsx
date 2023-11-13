@@ -41,12 +41,14 @@ const PostDetail = () => {
     <div className="postDetail">
       <h2>{post.title}</h2>
       <p>{post.body}</p>
-      <p>{new Date(post.created_at).toLocaleString()}</p>
-      <p>{currLikes}</p>
-      <button onClick={handleLike}>Like</button>
-      <Link to={`/edit/${params.id}`}>
-        <button>Edit Post</button>
-      </Link>
+      <p className="time">{new Date(post.created_at).toLocaleString()}</p>
+      <p>Likes: {currLikes}</p>
+      <div className="detailFoot">
+        <button onClick={handleLike}>Like</button>
+        <Link to={`/edit/${params.id}`}>
+          <button>Edit Post</button>
+        </Link>
+      </div>
       <Comments post_id={params.id} />
     </div>
   )

@@ -22,7 +22,6 @@ const Post = ({id, createdAt, title, body, likes}) => {
     <div className="Post">
       <Link
         to={`/details/${id}`}><h3>{title}</h3></Link>
-      <p>{body}</p>
       <div className="likesComments">
         <p className="postCreatedTime">{createdAt.toLocaleString()}</p>
         <p>Likes: {likes}</p>

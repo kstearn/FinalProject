@@ -4,7 +4,7 @@ Submitted by: **Katelyn Stearn**
 
 This web app: **insert description**
 
-Time spent: **7** hours spent in total
+Time spent: **9** hours spent in total
 
 ## Required Features
 
@@ -52,7 +52,7 @@ GIF created with ...
 
 ## Notes
 
-Describe any challenges encountered while building the app.
+
 
 ## License
 
