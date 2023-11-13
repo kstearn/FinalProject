@@ -3,31 +3,31 @@ import { supabase } from '../client.jsx';
 import { Link } from 'react-router-dom';
 
 const Post = ({id, createdAt, title, body, likes}) => {
-
-  const [currLikes, setCurrLikes] = useState(likes);
-  
-  const handleLike = () => {
-    setCurrLikes(currLikes + 1);
-  }
+  const [numComments, setNumComments] = useState(null);
 
   useEffect(() => {
-    const updateLikes = async () => {
-      await supabase
-      .from('posts')
-      .update({ likes: currLikes })
-      .eq('id', id);
+    const getComments = async () => {
+      const {data, error} = await supabase
+        .from("posts")
+        .select(`comments(count)`)
+        .eq("id", id);
+      setNumComments(data[0].comments[0].count);
     }
-    updateLikes();
-  }, [currLikes])
+    if (!numComments) {
+      getComments();
+    }
+  }, []);
   
   return (
     <div className="Post">
       <Link
         to={`/details/${id}`}><h3>{title}</h3></Link>
       <p>{body}</p>
-      <p>{createdAt.toLocaleString()}</p>
-      <p>Likes: {currLikes}</p>
-      <button onClick={handleLike}>Like</button>
+      <div className="likesComments">
+        <p className="postCreatedTime">{createdAt.toLocaleString()}</p>
+        <p>Likes: {likes}</p>
+        <p>Comments: {numComments}</p>
+      </div>
     </div>
   )
 }

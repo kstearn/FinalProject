@@ -35,7 +35,7 @@ const CreatePost = () => {
           <input type="text" name="title" value={post.title} onChange={handleChange}/><br/><br/>
         
           <label for="body">Post body:</label><br/>
-          <textarea name="body" value={post.value} onChange={handleChange}></textarea><br/><br/>
+          <textarea name="body" value={post.body} onChange={handleChange}></textarea><br/><br/>
 
         <button onClick={createPost}>Create Post</button>
       </form>

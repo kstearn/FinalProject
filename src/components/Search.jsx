@@ -14,13 +14,11 @@ const Search = ({posts, setPosts}) => {
   
   return(
     <div>
-      <search>
-        <label for="search">Search by title: </label>
-        <input name="search" id="search" value={searchKey} onChange={e => {
+      <label for="search">Search by title: </label>
+      <input name="search" id="search" value={searchKey} onChange={e => {
       setSearchKey(e.target.value)
         }}></input>
-        <button onClick={handleSearch}>Search</button>
-      </search>
+      <button onClick={handleSearch}>Search</button>
     </div>
   )
 }

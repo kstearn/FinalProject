@@ -3,20 +3,17 @@ import { Outlet, Link } from "react-router-dom";
 const Nav = () => {
   return (
     <div className="nav">
-      <nav>
-        <ul>
-          <li className="home-link" key="home-button">
-            <Link to="/">
-              HOME
-            </Link>
-          </li>
-          <li>
-            <Link to="/create">
-              CREATE POST
-            </Link>
-          </li>
-        </ul>
-      </nav>
+      <header>
+        <h1>Travel Tales</h1>
+        <nav>
+          <Link to="/">
+            <button>HOME</button>
+          </Link>
+          <Link to="/create">
+            <button>CREATE POST</button>
+          </Link>
+        </nav>
+      </header>
       <Outlet />
     </div>
   )

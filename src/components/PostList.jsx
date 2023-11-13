@@ -12,16 +12,31 @@ const PostList = () => {
       const {data, error} = await supabase
         .from("posts")
         .select("*")
-        .order(sort, { ascending: false });
+        .order("created_at", { ascending: false });
       setPosts(data);
     }
     getPosts();
   }, []);
 
+  useEffect(() => {
+    const getPosts = async () => {
+      const {data, error} = await supabase
+        .from("posts")
+        .select("*")
+        .order("created_at", { ascending: false });
+      if (posts == null) {
+        setPosts(data);
+      }
+    }
+    getPosts();
+  }, [posts]);
+  
   return (
     <div className="PostList">
-      <SortBy posts={posts} setPosts={setPosts} />
-      <Search posts={posts} setPosts={setPosts}/>
+      <div className="filtering">
+        <SortBy posts={posts} setPosts={setPosts} />
+        <Search posts={posts} setPosts={setPosts}/>
+      </div>
       {posts ? 
         posts.map(post => {
           return <Post key={post.id} id={post.id} createdAt={new Date(post.created_at)} title={post.title} body={post.body} likes={post.likes} />
